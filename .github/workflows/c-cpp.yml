@@ -40,4 +40,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: deploy image
-       run: echo "We'd build & deploy our image here"
+      run: echo "We'd build & deploy our image here"
