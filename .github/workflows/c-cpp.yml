@@ -17,7 +17,7 @@ jobs:
       run: |
               sudo apt-get update
               sudo apt install googletest make cmake build-essential
-              pushd; cd /usr/src/googletest; cmake CMakeLists.txt; make; sudo make install; popd
+              pushd .; cd /usr/src/googletest; cmake CMakeLists.txt; make; sudo make install; popd
               make build
     - name: make starter tests
       run: make starter-tests
