@@ -18,6 +18,7 @@ jobs:
               sudo apt-get update >> /dev/null 2>&1
               sudo apt install googletest make cmake build-essential
               pushd .; cd /usr/src/googletest; sudo cmake CMakeLists.txt; sudo make; sudo make install; popd
+              echo "Crandall added this line for a demo"
               make build
 
   test:
