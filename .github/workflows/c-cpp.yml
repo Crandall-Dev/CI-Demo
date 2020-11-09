@@ -15,9 +15,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: make build
       run: |
-              apt-get update
-              apt install googletest make cmake build-essential
-              pushd; cd /usr/src/googletest; cmake CMakeLists.txt; make; make install; popd
+              sudo apt-get update
+              sudo apt install googletest make cmake build-essential
+              pushd; cd /usr/src/googletest; cmake CMakeLists.txt; make; sudo make install; popd
               make build
     - name: make starter tests
       run: make starter-tests
