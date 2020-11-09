@@ -25,13 +25,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: make starter tests
+    - name: test setup
       run: |
               sudo apt-get update >> /dev/null 2>&1
               sudo apt install googletest make cmake build-essential
               pushd .; cd /usr/src/googletest; sudo cmake CMakeLists.txt; sudo make; sudo make install; popd
-              make starter-tests
-    - name: make main tests
+    - name: starter tests
+      run: make starter-tests
+    - name: main tests
       run: make base-tests
 
   deploy:
