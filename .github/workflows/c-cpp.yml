@@ -26,10 +26,18 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: make starter tests
-       run: |
+      run: |
               sudo apt-get update >> /dev/null 2>&1
               sudo apt install googletest make cmake build-essential
               pushd .; cd /usr/src/googletest; sudo cmake CMakeLists.txt; sudo make; sudo make install; popd
               make starter-tests
     - name: make main tests
       run: make base-tests
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: deploy image
+       run: echo "We'd build & deploy our image here"
