@@ -1,3 +1,4 @@
 bin/
 *.gcda
 *.gcno
+*.swp
