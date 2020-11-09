@@ -3,3 +3,5 @@ bin/
 *.gcno
 *.swp
 __pycache__
+.coverage
+htmlcov/
