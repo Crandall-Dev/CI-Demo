@@ -42,10 +42,10 @@ class TestLocation(unittest.TestCase):
         self.assertEqual(loc2, locTarget)
 
     def test_go_east(self):
-        loc = Location(x=5, y=10)
-        loc2 = loc + Direction.EAST
         locTarget = Location(x=6, y=10)
-        self.assertEqual(loc2, locTarget)
+        loc = Location(x=5, y=10)           # Assemble
+        loc2 = loc + Direction.EAST         # Act
+        self.assertEqual(loc2, locTarget)   # Assert
 
     def test_go_west(self):
         loc = Location(x=5, y=10)

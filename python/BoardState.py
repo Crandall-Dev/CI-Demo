@@ -24,8 +24,6 @@ class BoardState:
 
         if self.bin_str:
             self.from_binary(self.bin_str)
-        if self.last_move:
-            self.resolve_move(self.last_move)
 
     # TODO: how can a move know if it's valid without the pieces?
     def resolve_move(self, last_move):
@@ -72,10 +70,10 @@ class BoardState:
             self.whoseTurn = "A"
 
     def is_attacker_turn(self):
-        return self.whoseTurn is "A"
+        return self.whoseTurn == "A"
 
     def is_defender_turn(self):
-        return self.whoseTurn is "D"
+        return self.whoseTurn == "D"
 
     def dump(self):
         self.pieces.dump_pieces()
