@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: flask CI
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: acrandal/dockerflask
 
     steps:
     - uses: actions/checkout@v2
@@ -22,7 +22,7 @@ jobs:
               make build
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: acrandal/dockerflask
 
     steps:
     - uses: actions/checkout@v2
@@ -37,9 +37,11 @@ jobs:
       run: make base-tests
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: acrandal/dockerflask
 
     steps:
     - uses: actions/checkout@v2
     - name: deploy image
-      run: echo "We'd build & deploy our image here"
+      run: |
+              echo "We'd build & deploy our image here"
+              curl http://localhost:5000
