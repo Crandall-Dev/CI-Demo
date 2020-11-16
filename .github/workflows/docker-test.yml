@@ -1,0 +1,45 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: make build
+      run: |
+              sudo apt-get update >> /dev/null 2>&1
+              sudo apt install googletest make cmake build-essential
+              pushd .; cd /usr/src/googletest; sudo cmake CMakeLists.txt; sudo make; sudo make install; popd
+              echo "Crandall added this line for a demo"
+              make build
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: test setup
+      run: |
+              sudo apt-get update >> /dev/null 2>&1
+              sudo apt install googletest make cmake build-essential
+              pushd .; cd /usr/src/googletest; sudo cmake CMakeLists.txt; sudo make; sudo make install; popd
+    - name: starter tests
+      run: make starter-tests
+    - name: main tests
+      run: make base-tests
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: deploy image
+      run: echo "We'd build & deploy our image here"
