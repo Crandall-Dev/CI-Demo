@@ -16,7 +16,7 @@ jobs:
     - name: build
       run: |
               cd flask
-              docker build -t "mydemo" .
+              docker build -t "mydemo2" .
 
   deploy:
     runs-on: ubuntu-latest
