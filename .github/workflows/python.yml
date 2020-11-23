@@ -18,6 +18,16 @@ jobs:
               cd python
               make build
 
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: lint
+      run: |
+              cd python
+              make lint
+
   test:
     runs-on: ubuntu-latest
 
