@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: Python Pipeline
 
 on:
   push:
@@ -29,6 +29,7 @@ jobs:
               echo "Testing python here"
     - name: main tests
       run: |
+              cd python
               make test
 
   deploy:
@@ -38,5 +39,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: deploy image
       run: |
-              cd python;
+              cd python
               echo "We'd build & deploy our image here"
