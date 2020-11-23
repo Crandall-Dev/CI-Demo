@@ -26,6 +26,7 @@ jobs:
     - name: lint
       run: |
               cd python
+              apt install flake8
               make lint
 
   test:
