@@ -1,0 +1,28 @@
+name: Flask Build Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: build
+      run: |
+              cd flask
+              docker build -t "mydemo"
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: deploy image
+      run: |
+              echo "We'd build & deploy our image here"
